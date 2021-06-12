@@ -3,12 +3,13 @@ import {StatusBar} from 'expo-status-bar';
 import {StyleSheet, View, Text, Dimensions} from 'react-native';
 import 'react-native-gesture-handler';
 import { NavigationContainer } from '@react-navigation/native';
-
 import Map from './components/parkComponents/Map'
 import UserContainer from './containers/UserContainer';
 import ParkContainer from './containers/ParkContainer';
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import Request from './helpers/request';
+import {useState, useEffect} from 'react';
 
 
 
@@ -47,6 +48,19 @@ function LogOut() {
 const Tab = createMaterialBottomTabNavigator();
 
 export default function App() {
+
+  const [parks, setParks] = useState([]);
+  const [routes, setRoutes] = useState([]);
+  const [users, setUsers] = useState([]);
+  const [coordinates, setCoordinates] = useState([]);
+
+  useEffect(() => {
+    fetch("http://localhost:8080/api/parks/json")
+    .then(res => res.json())
+    .then(data => setParks(data))
+    .catch(error => console.log(error))
+  }, [parks])
+
   return (
     <NavigationContainer>
       <Tab.Navigator
