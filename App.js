@@ -12,6 +12,7 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 
 
 
+
 function MyProfile() {
 return (
 <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
@@ -24,6 +25,7 @@ function Parks() {
 return (
 <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
     <ParkContainer/>
+    <Map/>
 </View>
 );
 }

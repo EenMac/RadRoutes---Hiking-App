@@ -4,18 +4,19 @@ import Park from '../components/parkComponents/Park';
 import ParkList from '../components/parkComponents/ParkList';
 import Routes from '../components/parkComponents/Routes';
 import Map from '../components/parkComponents/Map';
+import MapView from 'react-native-maps';
+
+
 
 
 const ParkContainer = () => {
     
     return (
-
-
-                    <Map/>
-
-            
-
-
+        <View>
+            <Park/>
+            <ParkList/>
+            <Routes/>
+        </View>
     );
 
 }
