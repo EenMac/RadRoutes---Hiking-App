@@ -6,9 +6,9 @@ import MapView from 'react-native-maps';
 const Map = () => {
 
     return(
-        <MapView
-        style={styles.map}
-    initialRegion={{
+      <MapView
+      style={styles.map}
+      initialRegion={{
       latitude: 57.043804,
       longitude: -3.603306,
       latitudeDelta: 0.0922,

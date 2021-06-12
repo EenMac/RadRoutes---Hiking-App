@@ -9,12 +9,12 @@ import MapView from 'react-native-maps';
 
 
 
-const ParkContainer = () => {
+const ParkContainer = ({parks}) => {
     
     return (
         <View>
             <Park/>
-            <ParkList/>
+            <ParkList parks={parks}/>
             <Routes/>
         </View>
     );
