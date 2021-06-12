@@ -8,7 +8,7 @@ import UserContainer from './containers/UserContainer';
 import ParkContainer from './containers/ParkContainer';
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-import Request from './helpers/request';
+import Request from './helpers/Request';
 import {useState, useEffect} from 'react';
 
 
@@ -53,13 +53,18 @@ export default function App() {
   const [routes, setRoutes] = useState([]);
   const [users, setUsers] = useState([]);
   const [coordinates, setCoordinates] = useState([]);
+  const [count, setCount] = useState(-1);
 
-  useEffect(() => {
-    fetch("http://localhost:8080/api/parks/json")
-    .then(res => res.json())
-    .then(data => setParks(data))
-    .catch(error => console.log(error))
-  }, [parks])
+  
+    useEffect(() => {
+      fetch("http://localhost:8080/api/parks")
+      .then(res => res.json())
+      .then(data => setParks(data))
+      .catch(error => console.log(error))
+    }, [parks.values])
+  
+
+  console.log('Parks:', parks);
 
   return (
     <NavigationContainer>
