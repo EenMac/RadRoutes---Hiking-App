@@ -53,7 +53,7 @@ export default function App() {
   const [routes, setRoutes] = useState([]);
   const [users, setUsers] = useState([]);
   const [coordinates, setCoordinates] = useState([]);
-  const [count, setCount] = useState(-1);
+  
 
   
     useEffect(() => {
@@ -62,9 +62,33 @@ export default function App() {
       .then(data => setParks(data))
       .catch(error => console.log(error))
     }, [parks.values])
+
+    useEffect(() => {
+      fetch("http://localhost:8080/api/routes")
+      .then(res => res.json())
+      .then(data => setRoutes(data))
+      .catch(error => console.log(error))
+    }, [routes.values])
+
+    useEffect(() => {
+      fetch("http://localhost:8080/api/coordinates")
+      .then(res => res.json())
+      .then(data => setCoordinates(data))
+      .catch(error => console.log(error))
+    }, [coordinates.values])
+
+    useEffect(() => {
+      fetch("http://localhost:8080/api/users")
+      .then(res => res.json())
+      .then(data => setUsers(data))
+      .catch(error => console.log(error))
+    }, [users.values])
   
 
   console.log('Parks:', parks);
+  console.log('routes:', routes);
+  console.log('coordinates:', coordinates);
+  console.log('users:', users);
 
   return (
     <NavigationContainer>
