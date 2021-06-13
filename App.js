@@ -20,21 +20,28 @@ export default function App() {
   const [coordinates, setCoordinates] = useState([]);
   const [selectedValue, setSelectedValue] = useState(null);
   const [mapProperty, setMapProperty] = useState(null);
+  const [longitude, setLongitude] = useState();
+  const [latitude, setLatitude] = useState();
+
+  useEffect(() => {
+    setLatitude(4.1246)
+    setLongitude(56.456)
+  })
 
 
-    function changeMapProperty(){
-      if(selectedValue !== null){
-        for (let i=0; i < parks.length; i++){
-          if(selectedValue === parks[i].parkName){
-            setMapProperty(parks[i])
-          }
-        }
-      }
-    }
+    // function changeMapProperty(){
+    //   if(selectedValue !== null){
+    //     for (let i=0; i < parks.length; i++){
+    //       if(selectedValue === parks[i].parkName){
+    //         setMapProperty(parks[i])
+    //       }
+    //     }
+    //   }
+    // }
 
-    useEffect(() => {
-      changeMapProperty()
-    })
+    // useEffect(() => {
+    //   changeMapProperty()
+    // })
 
   const onValueChange= function(park){
     setSelectedValue(park)}
@@ -51,7 +58,7 @@ export default function App() {
     return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
         <ParkContainer parks={parks} onValueChange={onValueChange} selectedValue={selectedValue}/>
-        <Map parks={parks} mapProperty={mapProperty}/>
+        <Map parks={parks} mapProperty={mapProperty} longitude={longitude} latitude={latitude}/>
     </View>
     );
     }
