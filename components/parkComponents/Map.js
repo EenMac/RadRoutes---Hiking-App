@@ -12,8 +12,8 @@ const Map = ({parks, mapProperty, latitude, longitude}) => {
     // }
 
 
-    const latitudeWorking = newLatitude();
-    const longitudeWorking = newLongitude();
+    // const latitudeWorking = newLatitude();
+    // const longitudeWorking = newLongitude();
 
     // const newLongitude = function(){
     //   if(mapProperty !== null){
@@ -28,8 +28,8 @@ const Map = ({parks, mapProperty, latitude, longitude}) => {
       <MapView
       style={styles.map}
       initialRegion={{
-      latitude: {latitude},
-      longitude: {longitude},
+      latitude: 56.000,
+      longitude: -4.000,
       latitudeDelta: 0.0922,
       longitudeDelta: 0.0421,
     }}
