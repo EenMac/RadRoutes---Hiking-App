@@ -3,28 +3,33 @@ import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import MapView from 'react-native-maps';
 
-const Map = ({parks, mapProperty}) => {
+const Map = ({parks, mapProperty, latitude, longitude}) => {
 
-    const newLatitude = function(){
-      if(mapProperty !== null){
-        return mapProperty.latitude
-      }return 56.0000
-    }
+    // const newLatitude = function(){
+    //   if(mapProperty !== null){
+    //     return mapProperty.latitude
+    //   }return 56.0000
+    // }
 
-    const newLongitude = function(){
-      if(mapProperty !== null){
-        return mapProperty.longitude
-      }return -4.0000
-    }
+
     const latitudeWorking = newLatitude();
     const longitudeWorking = newLongitude();
+
+    // const newLongitude = function(){
+    //   if(mapProperty !== null){
+    //     return mapProperty.longitude
+    //   }return -4.0000
+    // }
+    // console.log(newLatitude);
+    
+
     
     return(
       <MapView
       style={styles.map}
       initialRegion={{
-      latitude: {latitudeWorking},
-      longitude: {longitudeWorking},
+      latitude: {latitude},
+      longitude: {longitude},
       latitudeDelta: 0.0922,
       longitudeDelta: 0.0421,
     }}
