@@ -11,6 +11,10 @@ const Map = ({parks, mapProperty, latitude, longitude}) => {
     //   }return 56.0000
     // }
 
+
+    const latitudeWorking = newLatitude();
+    const longitudeWorking = newLongitude();
+
     // const newLongitude = function(){
     //   if(mapProperty !== null){
     //     return mapProperty.longitude
@@ -18,6 +22,7 @@ const Map = ({parks, mapProperty, latitude, longitude}) => {
     // }
     // console.log(newLatitude);
     
+
     
     return(
       <MapView
@@ -30,8 +35,6 @@ const Map = ({parks, mapProperty, latitude, longitude}) => {
     }}
   />
   
-  
-
   );
 }
 const styles = StyleSheet.create({
