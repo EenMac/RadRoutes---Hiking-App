@@ -4,17 +4,19 @@ import { StyleSheet, Text, View } from 'react-native';
 import MapView from 'react-native-maps';
 
 const Map = ({parks, selectedValue}) => {
+  console.log(selectedValue)
 
     return(
       <MapView
       style={styles.map}
       initialRegion={{
-      latitude: 57.043804,
-      longitude: -3.603306,
+      latitude: {selectedValue},
+      longitude: {selectedValue},
       latitudeDelta: 0.0922,
       longitudeDelta: 0.0421,
     }}
   />
+  
   
 
   );
