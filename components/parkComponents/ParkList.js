@@ -1,24 +1,33 @@
-import { StyleSheet, Text, View } from 'react-native';
-import React from 'react'
-import { FlatList } from 'react-native-gesture-handler';
+import { View, Picker, StyleSheet } from "react-native";
+import React, { useState } from "react";
+
 
 const ParkList = ({parks}) => {
 
-    const parkItems = parks.map((park, index) => {
+
+    
+    const listOfParkObjects = parks.map((park, index) => {
         return (
-            <View key={park.index} style={{margin: 10}}>
-            <Text>{park.parkName}</Text>
-            </View>
-        )
+            <Picker.Item label={park.parkName} value={park.parkName} />
+        );
+    });
 
 
-    })
+    const [selectedValue, setSelectedValue] = useState(null);
 
-    
-    
-        return <View>{parkItems()}</View>;
-    
+    return (
+        <View>
+        <Picker
+            selectedValue={selectedValue}
+            onValueChange={(park, index) => setSelectedValue(park)}
+            >
+                {listOfParkObjects}
+        </Picker>
+    </View>
+    )
+
 
 }
+
 
 export default ParkList;
