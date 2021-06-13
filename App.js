@@ -3,7 +3,8 @@ import {StatusBar} from 'expo-status-bar';
 import {StyleSheet, View, Text, Dimensions} from 'react-native';
 import 'react-native-gesture-handler';
 import { NavigationContainer } from '@react-navigation/native';
-import Map from './components/parkComponents/Map'
+import Map2 from './components/parkComponents/Map2';
+import Map from './components/parkComponents/Map';
 import UserContainer from './containers/UserContainer';
 import ParkContainer from './containers/ParkContainer';
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
@@ -11,50 +12,49 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 import Request from './helpers/Request';
 import {useState, useEffect} from 'react';
 
-
-
-
-function MyProfile() {
-return (
-<View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-    <UserContainer/>
-</View>
-);
-}
-
-function Parks() {
-return (
-<View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-    <ParkContainer/>
-    <Map/>
-</View>
-);
-}
-
-function MyRoutes() {
-    return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-        <Text>This is My Routes</Text>
-    </View>
-    );
-    }
-
-function LogOut() {
-    return (
-      null
-    );
-    }
-
-const Tab = createMaterialBottomTabNavigator();
-
 export default function App() {
 
   const [parks, setParks] = useState([]);
   const [routes, setRoutes] = useState([]);
   const [users, setUsers] = useState([]);
   const [coordinates, setCoordinates] = useState([]);
-  
+  const [selectedValue, setSelectedValue] = useState(null);
 
+  const onValueChange= function(park){
+    setSelectedValue(park)}
+
+  function MyProfile() {
+    return (
+    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+        <UserContainer/>
+    </View>
+    );
+    }
+    
+    function Parks() {
+    return (
+    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+        <ParkContainer parks={parks} onValueChange={onValueChange} selectedValue={selectedValue}/>
+        <Map parks={parks} selectedValue={selectedValue}/>
+    </View>
+    );
+    }
+    
+    function MyRoutes() {
+        return (
+        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+            <Text>This is My Routes</Text>
+        </View>
+        );
+        }
+    
+    function LogOut() {
+        return (
+          null
+        );
+        }
+    
+    const Tab = createMaterialBottomTabNavigator();
   
     useEffect(() => {
       fetch("http://localhost:8080/api/parks")
@@ -84,12 +84,6 @@ export default function App() {
       .catch(error => console.log(error))
     }, [users.values])
   
-
-  console.log('Parks:', parks);
-  console.log('routes:', routes);
-  console.log('coordinates:', coordinates);
-  console.log('users:', users);
-
   return (
     <NavigationContainer>
       <Tab.Navigator
