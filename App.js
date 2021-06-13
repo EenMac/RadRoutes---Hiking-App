@@ -22,6 +22,12 @@ export default function App() {
   const [mapProperty, setMapProperty] = useState(null);
   const [longitude, setLongitude] = useState();
   const [latitude, setLatitude] = useState();
+  const [region, setRegion] = useState({
+    latitude: 51.5079145,
+    longitude: -0.0899163,
+    latitudeDelta: 0.01,
+    longitudeDelta: 0.01
+  });
 
   useEffect(() => {
     setLatitude(4.1246)
@@ -58,7 +64,7 @@ export default function App() {
     return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
         <ParkContainer parks={parks} onValueChange={onValueChange} selectedValue={selectedValue}/>
-        <Map parks={parks} mapProperty={mapProperty} longitude={longitude} latitude={latitude}/>
+        <Map parks={parks} mapProperty={mapProperty} longitude={longitude} latitude={latitude} region={region}/>
     </View>
     );
     }
