@@ -6,13 +6,11 @@ const ParkList = ({parks, onValueChange, selectedValue}) => {
 
 
     
-    const listOfParkObjects = parks.map((park, id) => {
+    const listOfParkPickerItems = parks.map((park, id) => {
         return (
-            <Picker.Item key={id} label={park.parkName} value={park} />
+            <Picker.Item label={park.parkName} value={park.parkName} key={park.id} />
         );
     });
-    
-
 
     return (
         <View>
@@ -21,7 +19,7 @@ const ParkList = ({parks, onValueChange, selectedValue}) => {
             onValueChange={onValueChange}
             >
                 <Picker.Item label="Choose Park" value="Choose Park" />
-                {listOfParkObjects}
+                {listOfParkPickerItems}
         </Picker>
     </View>
     )

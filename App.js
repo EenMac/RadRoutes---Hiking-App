@@ -19,6 +19,22 @@ export default function App() {
   const [users, setUsers] = useState([]);
   const [coordinates, setCoordinates] = useState([]);
   const [selectedValue, setSelectedValue] = useState(null);
+  const [mapProperty, setMapProperty] = useState(null);
+
+
+    function changeMapProperty(){
+      if(selectedValue !== null){
+        for (let i=0; i < parks.length; i++){
+          if(selectedValue === parks[i].parkName){
+            setMapProperty(parks[i])
+          }
+        }
+      }
+    }
+
+    useEffect(() => {
+      changeMapProperty()
+    })
 
   const onValueChange= function(park){
     setSelectedValue(park)}
@@ -35,7 +51,7 @@ export default function App() {
     return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
         <ParkContainer parks={parks} onValueChange={onValueChange} selectedValue={selectedValue}/>
-        <Map parks={parks} selectedValue={selectedValue}/>
+        <Map parks={parks} mapProperty={mapProperty}/>
     </View>
     );
     }
