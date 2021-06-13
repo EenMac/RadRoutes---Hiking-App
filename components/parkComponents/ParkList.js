@@ -2,25 +2,25 @@ import { View, Picker, StyleSheet } from "react-native";
 import React, { useState } from "react";
 
 
-const ParkList = ({parks}) => {
+const ParkList = ({parks, onValueChange, selectedValue}) => {
 
 
     
-    const listOfParkObjects = parks.map((park, index) => {
+    const listOfParkObjects = parks.map((park, id) => {
         return (
-            <Picker.Item label={park.parkName} value={park.parkName} />
+            <Picker.Item key={id} label={park.parkName} value={park} />
         );
     });
+    
 
-
-    const [selectedValue, setSelectedValue] = useState(null);
 
     return (
         <View>
         <Picker
             selectedValue={selectedValue}
-            onValueChange={(park, index) => setSelectedValue(park)}
+            onValueChange={onValueChange}
             >
+                <Picker.Item label="Choose Park" value="Choose Park" />
                 {listOfParkObjects}
         </Picker>
     </View>

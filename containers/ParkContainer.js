@@ -9,12 +9,12 @@ import MapView from 'react-native-maps';
 
 
 
-const ParkContainer = ({parks}) => {
+const ParkContainer = ({parks, onValueChange, selectedValue}) => {
     
     return (
         <View>
             <Park/>
-            <ParkList parks={parks}/>
+            <ParkList parks={parks} onValueChange={onValueChange} selectedValue={selectedValue}/>
             <Routes/>
         </View>
     );

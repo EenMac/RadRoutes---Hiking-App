@@ -18,6 +18,10 @@ export default function App() {
   const [routes, setRoutes] = useState([]);
   const [users, setUsers] = useState([]);
   const [coordinates, setCoordinates] = useState([]);
+  const [selectedValue, setSelectedValue] = useState(null);
+
+  const onValueChange= function(park){
+    setSelectedValue(park)}
 
   function MyProfile() {
     return (
@@ -30,8 +34,8 @@ export default function App() {
     function Parks() {
     return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-        <ParkContainer parks={parks}/>
-        <Map2 parks={parks}/>
+        <ParkContainer parks={parks} onValueChange={onValueChange} selectedValue={selectedValue}/>
+        <Map parks={parks} selectedValue={selectedValue}/>
     </View>
     );
     }
