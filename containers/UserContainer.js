@@ -5,7 +5,7 @@ import RouteList from '../components/userComponents/RouteList';
 import Target from '../components/userComponents/Target';
 import User from '../components/userComponents/User';
 
-const UserContainer = ({users, selectedUser, onUserChange}) => {
+const UserContainer = () => {
     
     return (
         <View>
@@ -13,6 +13,7 @@ const UserContainer = ({users, selectedUser, onUserChange}) => {
             <RouteList/>
             <Target/>
             <User />
+            
             </View>
             
     );

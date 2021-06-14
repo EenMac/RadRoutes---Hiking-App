@@ -11,6 +11,7 @@ import { createMaterialBottomTabNavigator } from '@react-navigation/material-bot
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import Request from './helpers/Request';
 import {useState, useEffect} from 'react';
+import LogIn from './components/userComponents/LogIn';
 
 export default function App() {
 
@@ -19,12 +20,10 @@ export default function App() {
   const [users, setUsers] = useState([]);
   const [coordinates, setCoordinates] = useState([]);
   const [selectedValue, setSelectedValue] = useState(null);
-  const [mapProperty, setMapProperty] = useState(null);
-  const [longitude, setLongitude] = useState();
-  const [latitude, setLatitude] = useState();
+
   const [region, setRegion] = useState({
-    latitude: 56.4907,
-    longitude: -4.2026,
+    latitude: 57.88,
+    longitude: -4.57,
     latitudeDelta: 0.09,
     longitudeDelta: 0.04
   });
@@ -41,34 +40,8 @@ export default function App() {
     longitudeDelta: 0.04
   });
 
-  // useEffect(() => {
-  //   setLatitude(4.1246)
-  //   setLongitude(56.456)
-  // })
-
-
-    // function changeMapProperty(){
-    //   if(selectedValue !== null){
-    //     for (let i=0; i < parks.length; i++){
-    //       if(selectedValue === parks[i].parkName){
-    //         setMapProperty(parks[i])
-    //       }
-    //     }
-    //   }
-    // }
-
-    // useEffect(() => {
-    //   changeMapProperty()
-    // })
-
- 
-
   const onValueChange= function(park){
     setSelectedValue(park)}
-
-
-  
-
 
   function MyProfile() {
     return (
@@ -82,7 +55,7 @@ export default function App() {
     return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
         <ParkContainer parks={parks} onValueChange={onValueChange} selectedValue={selectedValue}/>
-        <Map parks={parks} mapProperty={mapProperty} longitude={longitude} latitude={latitude} region={region} setRegion={setRegion}
+        <Map parks={parks} region={region} setRegion={setRegion}
         lochLomand={lochLomand} setLochLomand={setLochLomand} cairngorms={cairngorms} setCairngorms={setCairngorms} selectedValue={selectedValue}
         
         />
@@ -100,7 +73,7 @@ export default function App() {
     
     function LogOut() {
         return (
-          null
+          <LogIn/>
         );
         }
     
