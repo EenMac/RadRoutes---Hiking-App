@@ -24,6 +24,7 @@ const Map = ({parks, mapProperty, latitude, longitude, region, setRegion, lochLo
     
 
     
+
   //   return(
   //     <MapView
   //     style={styles.map}
@@ -60,8 +61,10 @@ console.log(`value:`, selectedValue)
     style={styles.map}
     initialRegion={region}
 />
+
   
-  );
+);
+
 }
 const styles = StyleSheet.create({
   container: {

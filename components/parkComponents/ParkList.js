@@ -14,13 +14,14 @@ const ParkList = ({parks, onValueChange, selectedValue}) => {
     });
 
     return (
-        <View>
+        <View style={{borderwidth: 0}}>
         <Picker
             selectedValue={selectedValue}
             onValueChange={onValueChange}
             >
                 <Picker.Item label="Choose Park" value="Choose Park" />
                 {listOfParkPickerItems}
+                
         </Picker>
     </View>
     )
