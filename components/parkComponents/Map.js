@@ -4,7 +4,7 @@ import { StyleSheet, Text, View } from 'react-native';
 import MapView, {Polyline} from 'react-native-maps';
 
 
-const Map = ({region, setRegion, lochLomand, cairngorms, selectedValue, parks}) => {
+const Map = ({region, setRegion, lochLomand, cairngorms, selectedValue, parks, routes}) => {
 
 
   if (selectedValue !== "Cairngorms" && selectedValue !== "Loch Lomond"){
@@ -20,13 +20,13 @@ const Map = ({region, setRegion, lochLomand, cairngorms, selectedValue, parks}) 
 
 }
 
-const arrayOfParks = parks.map((park, index) => {
-  return park.allRoutes
+const arrayOfRoutes = routes.map((route, index) => {
+  return route
 })
 
+// console.log("This is our park object list" + arrayOfParks[0].allRoutes[0].routePoints[0].latitude);
 
-console.log("This is our park object list" + arrayOfParks);
-// console.log("array of parks: " + arrayOfParks[0])
+console.log("ARE THOSE ALL ROUTES???: " + arrayOfRoutes)
 
 console.log(`region:`, region)
 console.log(`value:`, selectedValue)

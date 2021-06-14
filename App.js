@@ -57,7 +57,7 @@ export default function App() {
         <ParkContainer parks={parks} onValueChange={onValueChange} selectedValue={selectedValue}/>
         <Map parks={parks} region={region} setRegion={setRegion}
         lochLomand={lochLomand} setLochLomand={setLochLomand} cairngorms={cairngorms} setCairngorms={setCairngorms} selectedValue={selectedValue}
-        
+        routes={routes}
         />
     </View>
     );
