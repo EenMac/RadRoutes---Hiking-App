@@ -23,16 +23,28 @@ export default function App() {
   const [longitude, setLongitude] = useState();
   const [latitude, setLatitude] = useState();
   const [region, setRegion] = useState({
-    latitude: 51.5079145,
-    longitude: -0.0899163,
-    latitudeDelta: 0.01,
-    longitudeDelta: 0.01
+    latitude: 56.4907,
+    longitude: -4.2026,
+    latitudeDelta: 0.09,
+    longitudeDelta: 0.04
+  });
+  const [lochLomand, setLochLomand] = useState({
+    latitude: 57.25,
+    longitude: -4.516,
+    latitudeDelta: 0.09,
+    longitudeDelta: 0.04
+  });
+  const [cairngorms, setCairngorms] = useState({
+    latitude: 57.083333,
+    longitude: -3.666667,
+    latitudeDelta: 0.09,
+    longitudeDelta: 0.04
   });
 
-  useEffect(() => {
-    setLatitude(4.1246)
-    setLongitude(56.456)
-  })
+  // useEffect(() => {
+  //   setLatitude(4.1246)
+  //   setLongitude(56.456)
+  // })
 
 
     // function changeMapProperty(){
@@ -49,8 +61,14 @@ export default function App() {
     //   changeMapProperty()
     // })
 
+ 
+
   const onValueChange= function(park){
     setSelectedValue(park)}
+
+
+  
+
 
   function MyProfile() {
     return (
@@ -64,7 +82,10 @@ export default function App() {
     return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
         <ParkContainer parks={parks} onValueChange={onValueChange} selectedValue={selectedValue}/>
-        <Map parks={parks} mapProperty={mapProperty} longitude={longitude} latitude={latitude} region={region}/>
+        <Map parks={parks} mapProperty={mapProperty} longitude={longitude} latitude={latitude} region={region} setRegion={setRegion}
+        lochLomand={lochLomand} setLochLomand={setLochLomand} cairngorms={cairngorms} setCairngorms={setCairngorms} selectedValue={selectedValue}
+        
+        />
     </View>
     );
     }

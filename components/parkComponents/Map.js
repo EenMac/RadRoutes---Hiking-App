@@ -3,7 +3,7 @@ import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import MapView from 'react-native-maps';
 
-const Map = ({parks, mapProperty, latitude, longitude, region}) => {
+const Map = ({parks, mapProperty, latitude, longitude, region, setRegion, lochLomand, cairngorms, selectedValue}) => {
 
     // const newLatitude = function(){
     //   if(mapProperty !== null){
@@ -28,17 +28,37 @@ const Map = ({parks, mapProperty, latitude, longitude, region}) => {
   //     <MapView
   //     style={styles.map}
   //     initialRegion={{
-  //     latitude: 56.124,
-  //     longitude: -4.456,
-  //     latitudeDelta: 0.0922,
-  //     longitudeDelta: 0.0421,
+  //     latitude: 56.25,
+  //     longitude: -4.516,
+  //     latitudeDelta: 0.09,
+  //     longitudeDelta: 0.04
   //   }}
   // />
+
+  
+
+  if (selectedValue !== "Cairngorms" && selectedValue !== "Loch Lomond"){
+    setRegion(region)
+  }
+
+  if (selectedValue === "Loch Lomond"){
+    setRegion(lochLomand)
+}
+
+  if (selectedValue === "Cairngorms"){
+  setRegion(cairngorms)
+
+}
+
+
+
+console.log(`region:`, region)
+console.log(`value:`, selectedValue)
 
   return(
     <MapView
     style={styles.map}
-    initialRegion={{region}}
+    initialRegion={region}
 />
   
   );

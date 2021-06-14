@@ -1,5 +1,6 @@
-import { View, Picker, StyleSheet } from "react-native";
+import { View, StyleSheet } from "react-native";
 import React, { useState } from "react";
+import {Picker} from '@react-native-picker/picker';
 
 
 const ParkList = ({parks, onValueChange, selectedValue}) => {

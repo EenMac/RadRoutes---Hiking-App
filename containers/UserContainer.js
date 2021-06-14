@@ -5,14 +5,14 @@ import RouteList from '../components/userComponents/RouteList';
 import Target from '../components/userComponents/Target';
 import User from '../components/userComponents/User';
 
-const UserContainer = () => {
+const UserContainer = ({users, selectedUser, onUserChange}) => {
     
     return (
         <View>
             <DistanceCovered/>
             <RouteList/>
             <Target/>
-            <User/>
+            <User />
             </View>
             
     );
