@@ -4,7 +4,7 @@ import { StyleSheet, Text, View } from 'react-native';
 import MapView, {Polyline} from 'react-native-maps';
 
 
-const Map = ({region, setRegion, lochLomand, cairngorms, selectedValue, parks, routes}) => {
+const Map = ({region, setRegion, lochLomand, cairngorms, selectedValue, parks, routes, coordinates}) => {
 
 
   if (selectedValue !== "Cairngorms" && selectedValue !== "Loch Lomond"){
@@ -20,13 +20,24 @@ const Map = ({region, setRegion, lochLomand, cairngorms, selectedValue, parks, r
 
 }
 
-const arrayOfRoutes = routes.map((route, index) => {
-  return route
+const arrayOfRoutes = coordinates.map((coordinate, index) => {
+  return (
+    { latitude: coordinate.latitude, longitude: coordinate.longitude }
+  )
 })
+
+
+
+
+
+
 
 // console.log("This is our park object list" + arrayOfParks[0].allRoutes[0].routePoints[0].latitude);
 
-console.log("ARE THOSE ALL ROUTES???: " + arrayOfRoutes)
+
+console.log("ARE THOSE ALL ROUTE Latitudes???: " + arrayOfRoutes)
+// console.log("ARE THOSE ALL latitudes???: " + routeLatitude)
+// console.log("ARE THOSE ALL longitudes???: " + routeLongitude)
 
 console.log(`region:`, region)
 console.log(`value:`, selectedValue)
@@ -46,14 +57,9 @@ console.log(`value:`, selectedValue)
                 description={"Description: Flat"}
             />
             <Polyline
-                coordinates={[
-                  { latitude: 37.8025259, longitude: -122.4351431 },
-                  { latitude: 37.7896386, longitude: -122.421646 },
-                  { latitude: 37.7665248, longitude: -122.4161628 },
-                  { latitude: 37.7734153, longitude: -122.4577787 },
-                  { latitude: 37.7948605, longitude: -122.4596065 },
-                  { latitude: 37.8025259, longitude: -122.4351431 }
-                ]}
+                coordinates={arrayOfRoutes}
+                  
+                
                 strokeColor="#000" // fallback for when `strokeColors` is not supported by the map-provider
                 // strokeColors={[
                 //   '#7F0000',
