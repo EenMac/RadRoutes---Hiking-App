@@ -1,14 +1,22 @@
 import React from 'react';
-import RNPPickerSelect from 'react-native-picker-select'
-const ParkList2 = () => {
+import RNPickerSelect from 'react-native-picker-select'
+import Text from 'react-native';
+const ParkList2 = ({parks, selectedValue, onValueChange}) => {
+
+    const listOfParkPickerItems = parks.map((park, id) => {
+        return (
+            {label: park.parkName, value: park.parkName, key: id}
+            
+        );
+    });
+
     return (
-        <RNPPickerSelect
-            onValueChange={(value) => console.log(value)}
-            items={[
-                {label: 'Football', value: 'football'},
-                {label: 'Football', value: 'football'},
-                {label: 'Football', value: 'football'},
-            ]}
+        <RNPickerSelect
+            onValueChange={onValueChange}
+            selectedValue={selectedValue}
+            items={
+                listOfParkPickerItems
+            }
         />
     );
 };

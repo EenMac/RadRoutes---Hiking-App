@@ -1,42 +1,11 @@
 import { StatusBar } from 'expo-status-bar';
-import React from 'react';
+import React, { Fragment } from 'react'
 import { StyleSheet, Text, View } from 'react-native';
-import MapView from 'react-native-maps';
-
-const Map = ({parks, mapProperty, latitude, longitude, region, setRegion, lochLomand, cairngorms, selectedValue}) => {
-
-    // const newLatitude = function(){
-    //   if(mapProperty !== null){
-    //     return mapProperty.latitude
-    //   }return 56.0000
-    // }
+import MapView, {Polyline} from 'react-native-maps';
 
 
-    // const latitudeWorking = newLatitude();
-    // const longitudeWorking = newLongitude();
+const Map = ({region, setRegion, lochLomand, cairngorms, selectedValue, parks, routes}) => {
 
-    // const newLongitude = function(){
-    //   if(mapProperty !== null){
-    //     return mapProperty.longitude
-    //   }return -4.0000
-    // }
-    // console.log(newLatitude);
-    
-
-    
-
-  //   return(
-  //     <MapView
-  //     style={styles.map}
-  //     initialRegion={{
-  //     latitude: 56.25,
-  //     longitude: -4.516,
-  //     latitudeDelta: 0.09,
-  //     longitudeDelta: 0.04
-  //   }}
-  // />
-
-  
 
   if (selectedValue !== "Cairngorms" && selectedValue !== "Loch Lomond"){
     setRegion(region)
@@ -51,20 +20,56 @@ const Map = ({parks, mapProperty, latitude, longitude, region, setRegion, lochLo
 
 }
 
+const arrayOfRoutes = routes.map((route, index) => {
+  return route
+})
 
+// console.log("This is our park object list" + arrayOfParks[0].allRoutes[0].routePoints[0].latitude);
+
+console.log("ARE THOSE ALL ROUTES???: " + arrayOfRoutes)
 
 console.log(`region:`, region)
 console.log(`value:`, selectedValue)
 
   return(
-    <MapView
-    style={styles.map}
-    initialRegion={region}
-/>
+    <Fragment>
+            <MapView 
+                style={styles.map}
+                initialRegion={region}
+            >
+            <MapView.Marker
+                coordinate={{
+                latitude: 56.101491,
+                longitude: -4.642252
+                }}
+                title={"Route: Luss Village"}
+                description={"Description: Flat"}
+            />
+            <Polyline
+                coordinates={[
+                  { latitude: 37.8025259, longitude: -122.4351431 },
+                  { latitude: 37.7896386, longitude: -122.421646 },
+                  { latitude: 37.7665248, longitude: -122.4161628 },
+                  { latitude: 37.7734153, longitude: -122.4577787 },
+                  { latitude: 37.7948605, longitude: -122.4596065 },
+                  { latitude: 37.8025259, longitude: -122.4351431 }
+                ]}
+                strokeColor="#000" // fallback for when `strokeColors` is not supported by the map-provider
+                // strokeColors={[
+                //   '#7F0000',
+                //   '#00000000', // no color, creates a "long" gradient between the previous and next coordinate
+                //   '#B24112',
+                //   '#E5845C',
+                //   '#238C23',
+                //   '#7F0000'
+                // ]}
+                strokeWidth={6}
+              />
+            </MapView>
+    </Fragment>
 
-  
+    
 );
-
 }
 const styles = StyleSheet.create({
   container: {
