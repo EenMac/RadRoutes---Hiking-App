@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {StatusBar} from 'expo-status-bar';
-import {StyleSheet, View, Text, Dimensions} from 'react-native';
+import {StyleSheet, View, Text, Dimensions, ImageBackground} from 'react-native';
 import 'react-native-gesture-handler';
 import { NavigationContainer } from '@react-navigation/native';
 import Map2 from './components/parkComponents/Map2';
@@ -55,7 +55,7 @@ export default function App() {
     return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
         <ParkContainer parks={parks} onValueChange={onValueChange} selectedValue={selectedValue}/>
-        <Map parks={parks} region={region} setRegion={setRegion}
+        <Map parks={parks} region={region} setRegion={setRegion} coordinates={coordinates}
         lochLomand={lochLomand} setLochLomand={setLochLomand} cairngorms={cairngorms} setCairngorms={setCairngorms} selectedValue={selectedValue}
         routes={routes}
         />
@@ -107,8 +107,15 @@ export default function App() {
       .catch(error => console.log(error))
     }, [users.values])
   
+    const image = { uri: "/Users/niedziwec/Downloads/RadRoutesBG.png" };
+
   return (
     <NavigationContainer>
+    <ImageBackground source={image} style={styles.image}>
+      <Text style={styles.text}>Inside</Text>
+    </ImageBackground>
+
+      
       <Tab.Navigator
         shifting={false}
         activeColor="#EFDECD"
@@ -153,4 +160,11 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  image: {
+    flex: 1,
+    resizeMode: "cover",
+    justifyContent: "center"
+  },
 });
+
+
