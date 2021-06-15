@@ -15,7 +15,7 @@ if (currentUser === null){
 
         
         <View>
-            <Text>Distance Covered</Text>
+            <Text>Distance Covered = 1</Text>
           
         </View>
 
