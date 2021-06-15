@@ -1,7 +1,7 @@
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, StatusBar } from 'react-native';
 import React from 'react';
 
-const Target = ({currentUser}) => {
+const UserDetails = ({currentUser}) => {
     
     if (currentUser === null){
         return (null)
@@ -10,10 +10,13 @@ const Target = ({currentUser}) => {
         return (
     
             
-            <View>
-                <Text style={styles.item}>Monthly Goal: {currentUser.distanceTarget}km</Text>
-                
-            </View>
+            <View >
+            <Text style={styles.item}>Name: {currentUser.firstName} {currentUser.lastName}</Text>
+            <Text style={styles.item}>Age: {currentUser.age}</Text>
+            <Text style={styles.item}>Sex: {currentUser.sex}</Text>
+            <Text style={styles.item}>Email: {currentUser.email}</Text>
+            <Text style={styles.item}>Known as: {currentUser.alias}</Text>
+        </View>
     
     
         )
@@ -49,4 +52,5 @@ const Target = ({currentUser}) => {
 
 
 
-export default Target;
+export default UserDetails;
+

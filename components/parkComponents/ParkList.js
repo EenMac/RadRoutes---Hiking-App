@@ -1,14 +1,33 @@
-import { StyleSheet, Text, View } from 'react-native';
-import React from 'react'
+import { View, StyleSheet } from "react-native";
+import React, { useState } from "react";
+import {Picker} from '@react-native-picker/picker';
 
-const ParkList = () => {
+
+const ParkList = ({parks, onValueChange, selectedValue}) => {
+
+
     
-    return (
-        <View>
+    const listOfParkPickerItems = parks.map((park, id) => {
+        return (
+            <Picker.Item label={park.parkName} value={park.parkName} key={park.id} />
+        );
+    });
 
-        </View>
+    return (
+        <View style={{borderwidth: 0}}>
+        <Picker
+            selectedValue={selectedValue}
+            onValueChange={onValueChange}
+            >
+                <Picker.Item label="Choose Park" value="Choose Park" />
+                {listOfParkPickerItems}
+                
+        </Picker>
+    </View>
     )
 
+
 }
+
 
 export default ParkList;
