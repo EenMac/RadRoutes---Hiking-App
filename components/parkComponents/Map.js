@@ -27,7 +27,11 @@ const arrayOfRoutes = coordinates.map((coordinate, index) => {
 })
 
 
-console.log('coordinates', arrayOfRoutes[0])
+
+
+console.log('coordinates', JSON.stringify(arrayOfRoutes))
+
+
 
 
 
@@ -59,7 +63,23 @@ return(
                 description={"Description: Flat"}
             />
             <Polyline
-                coordinates={arrayOfRoutes}
+                coordinates={arrayOfRoutes[0], arrayOfRoutes[1], arrayOfRoutes[2], arrayOfRoutes[3], arrayOfRoutes[4], arrayOfRoutes[5]}
+                  
+                
+                strokeColor="#000" // fallback for when `strokeColors` is not supported by the map-provider
+                // strokeColors={[
+                //   '#7F0000',
+                //   '#00000000', // no color, creates a "long" gradient between the previous and next coordinate
+                //   '#B24112',
+                //   '#E5845C',
+                //   '#238C23',
+                //   '#7F0000'
+                // ]}
+                strokeWidth={6}
+              />
+
+<Polyline
+                coordinates={arrayOfRoutes[6], arrayOfRoutes[7], arrayOfRoutes[8], arrayOfRoutes[9], arrayOfRoutes[10], arrayOfRoutes[11]}
                   
                 
                 strokeColor="#000" // fallback for when `strokeColors` is not supported by the map-provider
