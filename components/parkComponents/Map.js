@@ -31,19 +31,6 @@ const arrayOfRoutes = coordinates.map((coordinate, index) => {
 
 console.log('coordinates', JSON.stringify(arrayOfRoutes))
 
-
-
-
-
-
-
-// console.log("This is our park object list" + arrayOfParks[0].allRoutes[0].routePoints[0].latitude);
-
-
-console.log("ARE THOSE ALL ROUTE Latitudes???: " + arrayOfRoutes)
-// console.log("ARE THOSE ALL latitudes???: " + routeLatitude)
-// console.log("ARE THOSE ALL longitudes???: " + routeLongitude)
-
 console.log(`region:`, region)
 console.log(`value:`, selectedValue)
 

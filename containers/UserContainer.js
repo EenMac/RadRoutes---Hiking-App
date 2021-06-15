@@ -5,14 +5,17 @@ import RouteList from '../components/userComponents/RouteList';
 import Target from '../components/userComponents/Target';
 import User from '../components/userComponents/User';
 
-const UserContainer = () => {
+
+const UserContainer = ({selectedUser, users, setSelectedUser, setCurrentUser, currentUser}) => {
     
     return (
         <View>
-            <DistanceCovered/>
+            <User selectedUser={selectedUser} users={users} setSelectedUser={setSelectedUser} setCurrentUser={setCurrentUser} currentUser={currentUser}/>
+           
+            <DistanceCovered   currentUser={currentUser} />
             <RouteList/>
-            <Target/>
-            <User />
+            <Target currentUser={currentUser}/>
+            
             
             </View>
             

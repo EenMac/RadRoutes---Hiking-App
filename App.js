@@ -21,6 +21,7 @@ export default function App() {
   const [coordinates, setCoordinates] = useState([]);
   const [selectedValue, setSelectedValue] = useState(null);
   const [selectedUser, setSelectedUser] = useState(null);
+  const [currentUser, setCurrentUser] = useState(null);
 
   const [region, setRegion] = useState({
     latitude: 57.88,
@@ -44,14 +45,12 @@ export default function App() {
   const onValueChange= function(park){
     setSelectedValue(park)}
 
-  const onUserChange=function(user){
-    setSelectedUser(user)
-  }
+  
 
   function MyProfile() {
     return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-        <UserContainer selectedUser={selectedUser} users={users} onUserChange={onUserChange}/>
+        <UserContainer setSelectedUser={setSelectedUser} selectedUser={selectedUser} users={users} currentUser={currentUser} setCurrentUser={setCurrentUser}/>
     </View>
     );
     }

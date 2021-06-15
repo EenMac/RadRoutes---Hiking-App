@@ -1,27 +1,52 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import {StyleSheet, View, Text, TextComponent, Image} from 'react-native';
 import RNPickerSelect from 'react-native-picker-select';
+import DistanceCovered from '../userComponents/DistanceCovered';
 
 
-const User = ({users, onUserChange, selectedUser}) => {
+const User = ({users, selectedUser, setSelectedUser, currentUser, setCurrentUser}) => {
 
-    const listOfUserPickerItems = users.map((user, id) => {
+    const onValueChange= function(user){
+        
+        findUser(user, users)
+       
+    
+    }
+
+    const findUser = function(user, users){
+        for (var i=0; i < users.length; i++) {
+            if (users[i].alias === user) {
+                setCurrentUser(users[i]);
+            }
+        }
+    }
+
+    console.log(`currentUser`, currentUser)
+
+    
+
+const listOfUserPickerItems = users.map((user, id) => {
         return (
             {label: user.alias, value: user.alias, key: id}
             
         );
     });
 
+   
+
     return(
-        <View>
+        <Fragment>
                 <RNPickerSelect
-            onUserChange={onUserChange}
-            selectedUser={selectedUser}
+            onValueChange={onValueChange}
             items={
                 listOfUserPickerItems
             }
         />
-        </View>
+
+        
+        </Fragment>
+    
+       
     )
 }
 
