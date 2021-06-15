@@ -107,13 +107,13 @@ export default function App() {
       .catch(error => console.log(error))
     }, [users.values])
   
-    const image = { uri: "/Users/niedziwec/Downloads/RadRoutesBG.png" };
+    
 
   return (
     <NavigationContainer>
-    <ImageBackground source={image} style={styles.image}>
-      <Text style={styles.text}>Inside</Text>
-    </ImageBackground>
+    
+      
+   
 
       
       <Tab.Navigator
@@ -160,11 +160,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  image: {
-    flex: 1,
-    resizeMode: "cover",
-    justifyContent: "center"
-  },
+ 
 });
 
 
