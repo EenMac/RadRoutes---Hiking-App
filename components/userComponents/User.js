@@ -1,28 +1,26 @@
 import React from 'react';
 import {StyleSheet, View, Text, TextComponent, Image} from 'react-native';
+import RNPickerSelect from 'react-native-picker-select';
 
 
-const User = () => {
+const User = ({users, onUserChange, selectedUser}) => {
 
-    const styles = StyleSheet.create({
-
-    logo: {
-        width: 66,
-        height: 58,
-    },
+    const listOfUserPickerItems = users.map((user, id) => {
+        return (
+            {label: user.alias, value: user.alias, key: id}
+            
+        );
     });
-
 
     return(
         <View>
-                <Text>This is User Profile component</Text>
-
-                <Image
-                    style={styles.logo}
-                    source={{
-                    uri: 'https://www.balticcouncil.pl/images/products/macibas-arzemes/valodu-nometnes-kursi-7-18-g-v-skoleniem---individualie-braucieni/anglu-valoda-asv/boston/th/700x700_6/1.jpg',
-                    }}
-                />
+                <RNPickerSelect
+            onUserChange={onUserChange}
+            selectedUser={selectedUser}
+            items={
+                listOfUserPickerItems
+            }
+        />
         </View>
     )
 }
