@@ -5,6 +5,7 @@ import 'react-native-gesture-handler';
 import { NavigationContainer } from '@react-navigation/native';
 import Map2 from './components/parkComponents/Map2';
 import Map from './components/parkComponents/Map';
+import Routes from './components/parkComponents/Routes'
 import UserContainer from './containers/UserContainer';
 import ParkContainer from './containers/ParkContainer';
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
@@ -63,10 +64,10 @@ export default function App() {
     );
     }
     
-    function MyRoutes() {
+    function AllRoutes() {
         return (
         <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-            <Text>This is My Routes</Text>
+            <Routes routes={routes}/>
         </View>
         );
         }
@@ -135,8 +136,8 @@ export default function App() {
           ),
         }}
     />
-    <Tab.Screen name="My Routes" component={MyRoutes} options={{
-          tabBarLabel: 'My Routes',
+    <Tab.Screen name="All routes" component={AllRoutes} options={{
+          tabBarLabel: 'All Routes',
           tabBarIcon: ({ color }) => (
             <MaterialCommunityIcons name="shoe-print" color={color} size={26} />
           ),
