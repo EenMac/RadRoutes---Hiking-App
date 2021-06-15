@@ -51,39 +51,62 @@ export default function App() {
       
     })
 
-  
+    const totalDistance = (() => {
+      let total = 0;
+      for (let i=0; i<currentUser.AllRoutes.length; i++){
+        return currentUser.allRoutes[i].distance += total
+      }
+    })
+    
+    
 
   function MyProfile() {
     return (
-    <View style={{ flex: 1, justifyContent: 'top', alignItems: 'center' }}>
-        <UserContainer  setSelectedUser={setSelectedUser} selectedUser={selectedUser} users={users} currentUser={currentUser} setCurrentUser={setCurrentUser}/>
-    </View>
+
+      <ImageBackground source={require('./assets/RadRoutesLogo.png')} style={styles.image}>
+         <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+        <UserContainer  totalDistance={totalDistance} setSelectedUser={setSelectedUser} selectedUser={selectedUser} users={users} currentUser={currentUser} setCurrentUser={setCurrentUser}/>
+        </View>
+      </ImageBackground>
+   
     );
     }
     
     function Parks() {
     return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+
+      <ImageBackground source={require('./assets/RadRoutesLogo.png')} style={styles.image}>
+########<View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
         <ParkContainer parks={parks} onValueChange={onValueChange} selectedValue={selectedValue}/>
         <Map parks={parks} region={region} setRegion={setRegion} coordinates={coordinates}
         lochLomand={lochLomand} setLochLomand={setLochLomand} cairngorms={cairngorms} setCairngorms={setCairngorms} selectedValue={selectedValue}
         routes={routes}
         />
     </View>
+      </ImageBackground>
+    
     );
     }
     
     function AllRoutes() {
         return (
-        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+
+          <ImageBackground source={require('./assets/RadRoutesLogo.png')} style={styles.image}>
+            <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
             <Routes routes={routes}/>
         </View>
+          </ImageBackground>
+        
         );
         }
     
     function LogOut() {
         return (
-          <LogIn logOut={logOut} currentUser={currentUser}/>
+
+          <ImageBackground source={require('./assets/RadRoutesLogo.png')} style={styles.image}>
+            <LogIn logOut={logOut} currentUser={currentUser}/>    
+          </ImageBackground>
+          
         );
         }
     
@@ -169,6 +192,12 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  image: {
+    flex: 1,
+    resizeMode: 'cover',
+    justifyContent: 'center',
+    
   },
  
 });

@@ -1,21 +1,39 @@
-import { StyleSheet, Text, View, StatusBar } from 'react-native';
+import { StyleSheet, Text, View, StatusBar, Image } from 'react-native';
 import React from 'react';
 
-const UserDetails = ({currentUser}) => {
+const UserDetails = ({currentUser, totalDistance}) => {
+
+    console.log(currentUser.allRoutes[0].distance)
     
     if (currentUser === null){
         return (null)
     }
+   
     
         return (
-    
+
             
-            <View >
+            
+            
+            <View style={styles.container} >
+
+                
+                     {/* <Image
+                     source={require('./Rab C. Nesbitt.png')} style={styles.image}
+                     style={{ width: 100, height: 80 }}
+                 /> */}
+
+                
+               
             <Text style={styles.item}>Name: {currentUser.firstName} {currentUser.lastName}</Text>
             <Text style={styles.item}>Age: {currentUser.age}</Text>
             <Text style={styles.item}>Sex: {currentUser.sex}</Text>
             <Text style={styles.item}>Email: {currentUser.email}</Text>
             <Text style={styles.item}>Known as: {currentUser.alias}</Text>
+            <Text style={styles.item}>Monthly Goal: {currentUser.distanceTarget}km</Text>
+            <Text style={styles.item}>Distance Covered: {totalDistance}</Text>
+            
+
         </View>
     
     
@@ -30,15 +48,15 @@ const UserDetails = ({currentUser}) => {
     const styles = StyleSheet.create({
         container: {
             flex: 1,
-            
+            justifyContent:"center",
             marginHorizontal: 16
         },
         item: {
             backgroundColor: "#5FA777",
             color: '#fff',
             padding: 20,
-            marginVertical: 8,
-            fontSize: 20
+            marginVertical: 4,
+            fontSize: 16
         },
         header: {
             fontSize: 32,
@@ -47,7 +65,14 @@ const UserDetails = ({currentUser}) => {
         },
         title: {
             fontSize: 24
-        }
+        },
+
+        image: {
+            flex: 1,
+            
+            justifyContent: 'center',
+            
+          },
         });
 
 

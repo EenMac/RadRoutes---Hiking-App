@@ -15,7 +15,7 @@ if (currentUser === null){
 
         
         <View>
-            <Text>Distance Covered = 1</Text>
+           
           
         </View>
 
@@ -38,7 +38,8 @@ const styles = StyleSheet.create({
         backgroundColor: "#5FA777",
         color: '#fff',
         padding: 20,
-        marginVertical: 8
+        marginVertical: 8,
+        fontSize: 20
     },
     header: {
         fontSize: 32,

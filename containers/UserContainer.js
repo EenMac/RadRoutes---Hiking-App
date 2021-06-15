@@ -7,11 +7,11 @@ import User from '../components/userComponents/User';
 import UserDetails from "../components/userComponents/UserDetails"
 
 
-const UserContainer = ({selectedUser, users, setSelectedUser, setCurrentUser, currentUser}) => {
+const UserContainer = ({selectedUser, users, setSelectedUser, setCurrentUser, currentUser, totalDistance}) => {
 
     if (currentUser === null){
         return (
-            <View>
+            <View style={styles.container}>
                 
             <User selectedUser={selectedUser} users={users} setSelectedUser={setSelectedUser} setCurrentUser={setCurrentUser} currentUser={currentUser}/>
             <View></View>
@@ -22,11 +22,10 @@ const UserContainer = ({selectedUser, users, setSelectedUser, setCurrentUser, cu
     }
     
     return (
-        <View>
+        <View style={styles.container}>
             <User selectedUser={selectedUser} users={users} setSelectedUser={setSelectedUser} setCurrentUser={setCurrentUser} currentUser={currentUser}/>
-            <UserDetails currentUser={currentUser}/>
-            
-            <RouteList currentUser={currentUser}/>
+            <UserDetails currentUser={currentUser} totalDistance={totalDistance}/>
+            {/* <RouteList currentUser={currentUser}/> */}
             <Target currentUser={currentUser}/>
             <DistanceCovered   currentUser={currentUser} />
             
@@ -40,7 +39,7 @@ const UserContainer = ({selectedUser, users, setSelectedUser, setCurrentUser, cu
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        
+        justifyContent: 'center',
         marginHorizontal: 16
     },
     item: {
