@@ -5,20 +5,18 @@ const DistanceCovered = ({currentUser}) => {
 
     
 
-
-
-
 if (currentUser === null){
     return (null)
 }
+
+
 
     return (
 
         
         <View>
-            <Text>Name: {currentUser.firstName} {currentUser.lastName}</Text>
-            <Text>Age: {currentUser.age}</Text>
-            <Text>Sex: {currentUser.sex}</Text>
+            <Text>Distance Covered</Text>
+          
         </View>
 
 
