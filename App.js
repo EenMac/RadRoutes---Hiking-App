@@ -46,12 +46,17 @@ export default function App() {
   const onValueChange= function(park){
     setSelectedValue(park)}
 
+    const logOut = (() => {
+      setCurrentUser(null)
+      
+    })
+
   
 
   function MyProfile() {
     return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-        <UserContainer setSelectedUser={setSelectedUser} selectedUser={selectedUser} users={users} currentUser={currentUser} setCurrentUser={setCurrentUser}/>
+    <View style={{ flex: 1, justifyContent: 'top', alignItems: 'center' }}>
+        <UserContainer  setSelectedUser={setSelectedUser} selectedUser={selectedUser} users={users} currentUser={currentUser} setCurrentUser={setCurrentUser}/>
     </View>
     );
     }
@@ -78,7 +83,7 @@ export default function App() {
     
     function LogOut() {
         return (
-          <LogIn/>
+          <LogIn logOut={logOut} currentUser={currentUser}/>
         );
         }
     
