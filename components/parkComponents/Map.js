@@ -27,6 +27,7 @@ const arrayOfRoutes = coordinates.map((coordinate, index) => {
 })
 
 
+console.log('coordinates', arrayOfRoutes[0])
 
 
 
@@ -42,7 +43,9 @@ console.log("ARE THOSE ALL ROUTE Latitudes???: " + arrayOfRoutes)
 console.log(`region:`, region)
 console.log(`value:`, selectedValue)
 
-  return(
+if (arrayOfRoutes.length !== 0){
+
+return(
     <Fragment>
             <MapView 
                 style={styles.map}
@@ -50,8 +53,7 @@ console.log(`value:`, selectedValue)
             >
             <MapView.Marker
                 coordinate={{
-                latitude: 56.101491,
-                longitude: -4.642252
+                latitude: 56.101491, longitude: -4.642252
                 }}
                 title={"Route: Luss Village"}
                 description={"Description: Flat"}
@@ -74,8 +76,10 @@ console.log(`value:`, selectedValue)
             </MapView>
     </Fragment>
 
-    
+              
 );
+}
+
 }
 const styles = StyleSheet.create({
   container: {
