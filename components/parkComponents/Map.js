@@ -26,10 +26,8 @@ const arrayOfRoutes = coordinates.map((coordinate, index) => {
   )
 })
 
-
-
-
 console.log('coordinates', JSON.stringify(arrayOfRoutes))
+
 
 console.log(`region:`, region)
 console.log(`value:`, selectedValue)
@@ -50,7 +48,15 @@ return(
                 description={"Description: Flat"}
             />
             <Polyline
-                coordinates={arrayOfRoutes[0], arrayOfRoutes[1], arrayOfRoutes[2], arrayOfRoutes[3], arrayOfRoutes[4], arrayOfRoutes[5]}
+                coordinates={[
+                  { latitude: coordinates[0].latitude, longitude: coordinates[0].longitude },
+                  { latitude: coordinates[1].latitude, longitude: coordinates[1].longitude },
+                  { latitude: coordinates[2].latitude, longitude: coordinates[2].longitude },
+                  { latitude: coordinates[3].latitude, longitude: coordinates[3].longitude },
+                  { latitude: coordinates[4].latitude, longitude: coordinates[4].longitude },
+                  { latitude: coordinates[5].latitude, longitude: coordinates[5].longitude }
+                ]}
+
                   
                 
                 strokeColor="#000" // fallback for when `strokeColors` is not supported by the map-provider
@@ -65,7 +71,7 @@ return(
                 strokeWidth={6}
               />
 
-<Polyline
+            {/* <Polyline
                 coordinates={arrayOfRoutes[6], arrayOfRoutes[7], arrayOfRoutes[8], arrayOfRoutes[9], arrayOfRoutes[10], arrayOfRoutes[11]}
                   
                 
@@ -79,7 +85,7 @@ return(
                 //   '#7F0000'
                 // ]}
                 strokeWidth={6}
-              />
+              /> */}
             </MapView>
     </Fragment>
 
