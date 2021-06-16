@@ -3,7 +3,7 @@ import React from 'react';
 
 const UserDetails = ({currentUser, totalDistance}) => {
 
-    console.log(currentUser.allRoutes[0].distance)
+   
     
     if (currentUser === null){
         return (null)
@@ -18,10 +18,7 @@ const UserDetails = ({currentUser, totalDistance}) => {
             <View style={styles.container} >
 
                 
-                     {/* <Image
-                     source={require('./Rab C. Nesbitt.png')} style={styles.image}
-                     style={{ width: 100, height: 80 }}
-                 /> */}
+                
 
                 
                

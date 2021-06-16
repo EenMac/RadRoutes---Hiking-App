@@ -16,7 +16,7 @@ const ParkContainer = ({parks, onValueChange, selectedValue}) => {
         <View>
             <Park/>
             <ParkList2 parks={parks} onValueChange={onValueChange} selectedValue={selectedValue}/>
-            <Routes/>
+           
         </View>
     );
 

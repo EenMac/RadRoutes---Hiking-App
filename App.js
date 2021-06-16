@@ -63,7 +63,7 @@ export default function App() {
   function MyProfile() {
     return (
 
-      <ImageBackground source={require('./assets/RadRoutesLogo.png')} style={styles.image}>
+      <ImageBackground source={require('./assets/RRback.jpeg')} style={styles.image}>
          <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
         <UserContainer  totalDistance={totalDistance} setSelectedUser={setSelectedUser} selectedUser={selectedUser} users={users} currentUser={currentUser} setCurrentUser={setCurrentUser}/>
         </View>
@@ -75,8 +75,8 @@ export default function App() {
     function Parks() {
     return (
 
-      <ImageBackground source={require('./assets/RadRoutesLogo.png')} style={styles.image}>
-########<View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+      <ImageBackground source={require('./assets/RRback.jpeg')} style={styles.image}>
+      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
         <ParkContainer parks={parks} onValueChange={onValueChange} selectedValue={selectedValue}/>
         <Map parks={parks} region={region} setRegion={setRegion} coordinates={coordinates}
         lochLomand={lochLomand} setLochLomand={setLochLomand} cairngorms={cairngorms} setCairngorms={setCairngorms} selectedValue={selectedValue}
@@ -89,10 +89,18 @@ export default function App() {
     }
     
     function AllRoutes() {
+
+      console.log(routes.length)
+
+      if (routes.length === 0){
+        return null;
+      }
+
         return (
 
-          <ImageBackground source={require('./assets/RadRoutesLogo.png')} style={styles.image}>
+          <ImageBackground source={require('./assets/RRback.jpeg')} style={styles.image}>
             <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+
             <Routes routes={routes}/>
         </View>
           </ImageBackground>
@@ -103,7 +111,7 @@ export default function App() {
     function LogOut() {
         return (
 
-          <ImageBackground source={require('./assets/RadRoutesLogo.png')} style={styles.image}>
+          <ImageBackground source={require('./assets/RRback.jpeg')} style={styles.image}>
             <LogIn logOut={logOut} currentUser={currentUser}/>    
           </ImageBackground>
           
