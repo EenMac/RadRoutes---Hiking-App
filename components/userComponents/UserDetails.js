@@ -1,16 +1,33 @@
 import { StyleSheet, Text, View, StatusBar, Image } from 'react-native';
 import React from 'react';
 
-const UserDetails = ({currentUser, totalDistance}) => {
+const UserDetails = ({currentUser, distanceCovered}) => {
 
    
     
     if (currentUser === null){
         return (null)
     }
-   
-    
+
+    if(currentUser.totalDistance < currentUser.distanceTarget){
         return (
+
+            <View style={styles.container} >
+            <Text style={styles.item}>Name: {currentUser.firstName} {currentUser.lastName}</Text>
+            <Text style={styles.item}>Age: {currentUser.age}</Text>
+            <Text style={styles.item}>Sex: {currentUser.sex}</Text>
+            <Text style={styles.item}>Email: {currentUser.email}</Text>
+            <Text style={styles.item}>Known as: {currentUser.alias}</Text>
+            <Text style={styles.item}>Monthly Goal: {currentUser.distanceTarget}km</Text>
+            <Text style={styles.itemRed}>Distance Covered: {currentUser.totalDistance}km</Text>
+            
+
+        </View>
+
+        )
+    }
+   
+    return (
 
             
             
@@ -28,7 +45,7 @@ const UserDetails = ({currentUser, totalDistance}) => {
             <Text style={styles.item}>Email: {currentUser.email}</Text>
             <Text style={styles.item}>Known as: {currentUser.alias}</Text>
             <Text style={styles.item}>Monthly Goal: {currentUser.distanceTarget}km</Text>
-            <Text style={styles.item}>Distance Covered: {totalDistance}</Text>
+            <Text style={styles.item}>Distance Covered: {currentUser.totalDistance}km</Text>
             
 
         </View>
@@ -70,6 +87,13 @@ const UserDetails = ({currentUser, totalDistance}) => {
             justifyContent: 'center',
             
           },
+          itemRed: {
+            backgroundColor: "red",
+            color: '#fff',
+            padding: 20,
+            marginVertical: 4,
+            fontSize: 16
+        },
         });
 
 
