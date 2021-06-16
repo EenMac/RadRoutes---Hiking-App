@@ -11,7 +11,6 @@ const Target = ({currentUser}) => {
     
             
             <View>
-                <Text style={styles.item}>Monthly Goal: {currentUser.distanceTarget}km</Text>
                 
             </View>
     
@@ -27,7 +26,7 @@ const Target = ({currentUser}) => {
     const styles = StyleSheet.create({
         container: {
             flex: 1,
-            
+            justifyContent:"center",
             marginHorizontal: 16
         },
         item: {
