@@ -64,13 +64,13 @@ export default function App() {
     return (
 
       <ImageBackground source={require('./assets/RRback.jpeg')} style={styles.image}>
+
         <Text style={styles.header}>               RadRoutes</Text>
          <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-         
-        <UserContainer  totalDistance={totalDistance} setSelectedUser={setSelectedUser} selectedUser={selectedUser} users={users} currentUser={currentUser} setCurrentUser={setCurrentUser}/>
+         <UserContainer  totalDistance={totalDistance} setSelectedUser={setSelectedUser} selectedUser={selectedUser} users={users} currentUser={currentUser} setCurrentUser={setCurrentUser}/>
         </View>
       </ImageBackground>
-   
+
     );
     }
     
@@ -100,6 +100,7 @@ export default function App() {
       }
 return (
           <ImageBackground source={require('./assets/RRback.jpeg')} style={styles.image}>
+
             
           <Text style={styles.header}>               RadRoutes</Text>
           <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
@@ -109,6 +110,7 @@ return (
         </ImageBackground>
         )
 }
+
     function LogOut() {
         return (
 
