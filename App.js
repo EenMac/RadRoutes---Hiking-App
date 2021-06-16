@@ -51,12 +51,16 @@ export default function App() {
       
     })
 
-    const totalDistance = (() => {
+    const distanceCovered = () =>{
       let total = 0;
-      for (let i=0; i<currentUser.AllRoutes.length; i++){
-        return currentUser.allRoutes[i].distance += total
+      for (let i = 0; i < 10; i++) {
+          total += currentUser.allRoutes[i].distance;
+
+
       }
-    })
+      return total;
+
+  }
     
     
 
@@ -67,7 +71,7 @@ export default function App() {
 
         <Text style={styles.header}>               RadRoutes</Text>
          <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-         <UserContainer  totalDistance={totalDistance} setSelectedUser={setSelectedUser} selectedUser={selectedUser} users={users} currentUser={currentUser} setCurrentUser={setCurrentUser}/>
+         <UserContainer  distanceCovered={distanceCovered} setSelectedUser={setSelectedUser} selectedUser={selectedUser} users={users} currentUser={currentUser} setCurrentUser={setCurrentUser}/>
         </View>
       </ImageBackground>
 
