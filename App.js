@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {StatusBar} from 'expo-status-bar';
-import {StyleSheet, View, Text, Dimensions, ImageBackground} from 'react-native';
+import {StyleSheet, View, Text, Dimensions, ImageBackground, Image} from 'react-native';
 import 'react-native-gesture-handler';
 import { NavigationContainer } from '@react-navigation/native';
 import Map2 from './components/parkComponents/Map2';
@@ -64,7 +64,9 @@ export default function App() {
     return (
 
       <ImageBackground source={require('./assets/RRback.jpeg')} style={styles.image}>
+        <Text style={styles.header}>               RadRoutes</Text>
          <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+         
         <UserContainer  totalDistance={totalDistance} setSelectedUser={setSelectedUser} selectedUser={selectedUser} users={users} currentUser={currentUser} setCurrentUser={setCurrentUser}/>
         </View>
       </ImageBackground>
@@ -76,6 +78,7 @@ export default function App() {
     return (
 
       <ImageBackground source={require('./assets/RRback.jpeg')} style={styles.image}>
+        <Text style={styles.header}>               RadRoutes</Text>
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
         <ParkContainer parks={parks} onValueChange={onValueChange} selectedValue={selectedValue}/>
         <Map parks={parks} region={region} setRegion={setRegion} coordinates={coordinates}
@@ -95,23 +98,22 @@ export default function App() {
       if (routes.length === 0){
         return null;
       }
-
-        return (
-
+return (
           <ImageBackground source={require('./assets/RRback.jpeg')} style={styles.image}>
-            <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+            
+          <Text style={styles.header}>               RadRoutes</Text>
+          <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
 
-            <Routes routes={routes}/>
-        </View>
-          </ImageBackground>
-        
-        );
-        }
-    
+          <Routes routes={routes}/>
+      </View>
+        </ImageBackground>
+        )
+}
     function LogOut() {
         return (
 
           <ImageBackground source={require('./assets/RRback.jpeg')} style={styles.image}>
+            <Text style={styles.header}>               RadRoutes</Text>
             <LogIn logOut={logOut} currentUser={currentUser}/>    
           </ImageBackground>
           
@@ -200,6 +202,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
+    marginHorizontal: 16
   },
   image: {
     flex: 1,
@@ -207,6 +210,13 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     
   },
+  header: {
+    alignItems: 'center',
+    fontSize: 32,
+    backgroundColor: "#228B22",
+    color: '#fff'
+},
+ 
  
 });
 

@@ -5,7 +5,14 @@ const LogIn = ({currentUser, logOut}) => {
     
     if (currentUser === null){
         return (
-            <View style={styles.container}><Text style={styles.item}>No user logged in</Text></View>
+            <View style={styles.container}>
+            <Pressable style={styles.button} onPress={logOut}>
+                    <Text style={styles.item}>Logged Off</Text>
+            </Pressable>
+            
+            
+        </View>
+            
         )
         
     }
@@ -15,7 +22,7 @@ const LogIn = ({currentUser, logOut}) => {
             
             <View style={styles.container}>
                 <Pressable style={styles.button} onPress={logOut}>
-                        <Text style={styles.item}>Log Out</Text>
+                        <Text style={styles.item}>Log Out {currentUser.alias}</Text>
                 </Pressable>
                 
                 
