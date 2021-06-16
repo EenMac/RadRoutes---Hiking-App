@@ -58,16 +58,18 @@ container: {
 item: {
     backgroundColor: "#5FA777",
     color: '#fff',
-    padding: 20,
-    marginVertical: 8
+    padding: 10,
+    marginVertical: 2,
+    
 },
 header: {
-    fontSize: 32,
+    fontSize: 24,
     backgroundColor: "#228B22",
     color: '#fff'
 },
 title: {
-    fontSize: 24
+    fontSize: 20,
+    color: 'white'
 }
 });
 
